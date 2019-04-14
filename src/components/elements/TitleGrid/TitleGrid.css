@@ -10,13 +10,13 @@
 }
 
 .titleGrid__element {
-  margin: 0 auto 20px;
-  background: transparent;
   max-height: auto;
-  animation: animateGrid 0.5s;
   width: auto;
-  background-size: cover;
+  margin: 0 auto 20px;
   overflow: hidden;
+  background: transparent;
+  animation: animateGrid 0.5s;
+  background-size: cover;
 }
 
 @keyframes animateGrid {

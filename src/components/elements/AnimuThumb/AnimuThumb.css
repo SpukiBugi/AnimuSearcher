@@ -1,10 +1,9 @@
 .animuThumb {
-  height: 200px;
-  cursor: pointer;
   position: relative;
-  background-size: 100% 100%;
+  height: 200px;
   width: 184px;
-
+  cursor: pointer;
+  background-size: 100% 100%;
 }
 
 .animuThumb img {
@@ -13,20 +12,20 @@
 }
 
 .animuThumb p {
-  bottom: 0;
-  color: #fff;
+  position: absolute;
   display: inline-block;
+  bottom: 0;
+  left: 0;
+  width: 93%;
+  margin: 0;
+  padding: 15px 5px 5px;
   font-family: Avenir,lucida grande,tahoma,verdana,arial,sans-serif;
   font-size: 11px;
-  left: 0;
+  color: #fff;
   line-height: 1.2em;
-  padding: 15px 5px 5px;
-  position: absolute;
   text-shadow: rgba(0,0,0,.8) 1px 1px 0;
   background: -moz-linear-gradient(transparent, #000000);
   background: -webkit-linear-gradient(transparent, #000000);
-  margin: 0;
-  width: 93%;
 }
 
 .animuThumb:hover {
