@@ -4,10 +4,10 @@ import './Header.css';
 
 const Header = () => {
     return (
-            <Link to='/'>
-                <header className="main-header">
-                <div><h1>AnimuSearcher</h1></div>
-                <img className='banner-image' src='/images/arc.png' alt='arc' />
+            <Link to='/'  style={{ textDecoration: 'none' }}>
+                <header className="mainHeader">
+                    <div className ="mainHeader__title"><h1>AnimuSearcher</h1></div>
+                    <img className='mainHeader__image' src='/images/arc.png' alt='arc' />
                 </header>
             </Link>
     )

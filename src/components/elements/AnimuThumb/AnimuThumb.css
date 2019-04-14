@@ -24,6 +24,7 @@
   position: absolute;
   text-shadow: rgba(0,0,0,.8) 1px 1px 0;
   background: -moz-linear-gradient(transparent, #000000);
+  background: -webkit-linear-gradient(transparent, #000000);
   margin: 0;
   width: 93%;
 }
