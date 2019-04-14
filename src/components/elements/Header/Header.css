@@ -1,0 +1,20 @@
+.main-header {
+    display: flex;
+    text-align: center;
+    background-color: #282c34;
+    min-height: 200px;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    text-decoration-line: underline 1px;
+    text-decoration-color: #551A8B;
+  }
+  div:visited {
+    text-decoration: none;
+  }
+
+  .banner-image {
+    height: 200px;
+    image-resolution: 200px;
+  }

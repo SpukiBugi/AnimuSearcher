@@ -1,0 +1,35 @@
+.searchbar {
+    width: 100%;
+    height: 70px;
+    background: #1c1c1c;
+    position: relative;
+    padding: 20px 20px 0px 20px;
+    box-sizing: border-box;
+    color: #fff;
+  }
+  
+  .searchbar__content {
+    width: 100%;
+    height: 30px;
+    background:#353535;
+    border-radius: 40px;
+    position: relative;
+    color: #fff;
+  }
+  
+  .searchbar__input {
+    font-family: 'Abel', sans-serif;
+    font-size: 20px;
+    position: absolute;
+    left: 40px;
+    top: 5px;
+    border: 0;
+    background: transparent;
+    height: 20px;
+    color: #fff;
+    width: 100%;
+  }
+  
+  .input:focus {
+    outline: none;
+  }

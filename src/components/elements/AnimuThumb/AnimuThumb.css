@@ -1,0 +1,33 @@
+.animuThumb {
+  height: 200px;
+  cursor: pointer;
+  position: relative;
+  background-size: 100% 100%;
+  width: 184px;
+
+}
+
+.animuThumb img {
+  height: 100%;
+  width: 100%;
+}
+
+.animuThumb p {
+  bottom: 0;
+  color: #fff;
+  display: inline-block;
+  font-family: Avenir,lucida grande,tahoma,verdana,arial,sans-serif;
+  font-size: 11px;
+  left: 0;
+  line-height: 1.2em;
+  padding: 15px 5px 5px;
+  position: absolute;
+  text-shadow: rgba(0,0,0,.8) 1px 1px 0;
+  background: -moz-linear-gradient(transparent, #000000);
+  margin: 0;
+  width: 93%;
+}
+
+.animuThumb:hover {
+  opacity: 0.8;
+}
