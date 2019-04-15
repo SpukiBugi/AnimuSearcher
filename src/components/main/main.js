@@ -36,7 +36,7 @@ class main extends Component {
         media (id: $id, search: $search, status: $status, sort: $sort, type: ANIME) {
           id
           coverImage {
-            medium
+            large
           }
           title {
             romaji
@@ -55,7 +55,9 @@ class main extends Component {
         sort: 'SEARCH_MATCH',
       }) : 
       this.setState ({
-        searchTerm: undefined
+        searchTerm: undefined, 
+        status: 'RELEASING',
+        sort: 'POPULARITY_DESC',
       })
 
     var variables = {
@@ -124,7 +126,7 @@ class main extends Component {
             return <AnimuThumb
                 key = {i}
                 clickable = {true}
-                image = {element.coverImage.medium}
+                image = {element.coverImage.large}
                 animuId = {element.id}
                 animuName = {element.title.romaji}
                 />
