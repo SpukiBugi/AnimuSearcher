@@ -18,7 +18,6 @@ class main extends Component {
     hasNextPage: 1,
   }
 
-
   componentDidMount() {
     this.fetchItems()
   }

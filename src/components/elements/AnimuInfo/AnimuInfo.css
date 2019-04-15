@@ -13,7 +13,7 @@
   'header header'
   'img desc';
   grid-template-rows: auto auto;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 3fr;
   position: relative;
   max-width: 1280px;
   width: 100%;
@@ -31,6 +31,7 @@
 
 .animuInfo__text {
   grid-area: desc;
+  left: 0;
   width: auto;
   padding: 0 40px 0 0;
   color: #FFF;

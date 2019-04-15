@@ -10,7 +10,7 @@ const App = () => {
             <React.Fragment>
                 <Switch>
                     <Route path='/' component={main} exact />
-                    <Route path='/:animuId/:animuName' component={Animu} exact />
+                    <Route path='/:animuId' component={Animu} exact />
                     <Route component={NotFound} />
                 </Switch>
             </React.Fragment>

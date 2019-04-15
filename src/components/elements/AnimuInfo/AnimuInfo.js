@@ -14,7 +14,7 @@ const AnimuInfo = (props) => {
                     <div> <img className='animuInfo__thumb' src={props.animu.coverImage.large} alt='thumb' /> </div>
                     <div className='animuInfo__text'>
                         <h3>SYNOPSIS</h3>
-                        <p>{props.animu.description}</p>
+                        <p dangerouslySetInnerHTML = {{__html: props.animu.description }} />
                         <h3>RATING</h3>
                         <div className='animuInfo__rating'>
                             <meter min='0' max='100' optimum='100' low='40' high='70' value={props.animu.averageScore}></meter>
