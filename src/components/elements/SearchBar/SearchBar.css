@@ -18,14 +18,13 @@
 }
 
 .searchbar__input {
-  position: absolute;
-  left: 40px;
-  top: 5px;
+  position: relative;
   height: 20px;
-  width: 100%;
+  width: 98%;
+  padding: 6px 0 0 20px;
   border: 0;
   background: transparent;
-  color: #fff;
+  color: rgb(214, 214, 214);
   font-family: 'Abel', sans-serif;
   font-size: 20px;
 }
