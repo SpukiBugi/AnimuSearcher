@@ -13,10 +13,17 @@
     border-bottom: 1px solid #551A8B;
     display: inline-block;
     line-height: 0.85;
-    
   }
 
   .mainHeader__image {
     height: 200px;
     image-resolution: 200px;
+  }
+
+  @media screen and (max-width: 400px) {
+
+    .mainHeader__title h1 {
+      display: none;
+    }
+    
   }
