@@ -1,6 +1,7 @@
 export default `
   uniform vec2 u_resolution;
-  uniform vec2 u_scale;
+  uniform vec2 u_img;  
+  uniform float u_scale;
   uniform vec2 u_offset;
   uniform vec3 u_mouse;
   uniform float u_time;
@@ -236,12 +237,12 @@ export default `
       
       
       // vec2 uv = (gl_FragCoord.xy - 0.5 * u_resolution.xy) / min(u_resolution.y, u_resolution.x);
-      // vec2 uv = (gl_FragCoord.xy) / (u_resolution.xy * u_scale);
+      // vec2 uv = (gl_FragCoord.xy) / (u_resolution.xy * vec2(1.0, 1.0));
       // vec2 uv = gl_FragCoord.xy / u_resolution.xy * ( 1.0 / u_scale);
       // vec2 uv = vec2(1.0, 1.0) / u_scale ;
-      vec2 uv = gl_FragCoord.xy / u_resolution.xy / u_scale;
+      vec2 uv = gl_FragCoord.xy / u_img.xy / u_scale;
       // vec2 uv = gl_FragCoord.xy / u_resolution.xy ;
-      vec2 sample = gl_FragCoord.xy / u_resolution.xy ;
+      // vec2 sample = gl_FragCoord.xy / u_resolution.xy ;
       // uv.x += sin(u_time*.5);
       // sample.x += sin(u_time*.05);
       

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import fragmentShader from './shaders/fragmentShader.js';
 import vertexShader from './shaders/vertexShader.js';
 
-const image = "/images/head_back.jpg";
+const image = "/images/head_back_sc.jpg";
 
 let geometry = "";
 let material = "";
@@ -80,25 +80,30 @@ class Ripple extends Component {
       
       rtTexture2 = new THREE.WebGLRenderTarget(Math.floor(this.props.pWidth * textureFraction), Math.floor(this.props.pHeight * textureFraction), { type: THREE.FloatType, minFilter: THREE.NearestMipMapNearestFilter });
       
-      let scale = new THREE.Vector2();
+      let scale;
       let offset = new THREE.Vector2();
       // scale.x = pooltex.image.width / this.props.pWidth;
       // scale.y = pooltex.image.height / this.props.pHeight;
 
-      scale.y = 1;
-      scale.x= pooltex.image.width / this.props.pWidth;
-      if (scale.x < 1) {
-        scale.y = 1 / scale.x;
-        // scale.y = scale.x;
-        scale.x = 1;
-        offset.y = 1 - this.props.pHeight / pooltex.image.height;
-      } else {
-        offset.x = 1 - this.props.pWidth / pooltex.image.width;
-      }
+
+      // scale.y = 1;
+      // scale= pooltex.image.width / this.props.pWidth;
+      // if (scale.x < 1) {
+      //   scale = 1 / scale;
+      //   // scale.y = scale.x;
+      //   // scale.x = 1 / scale.x;
+      //   let img_height = pooltex.image.height * scale.y;
+      //   let box_height = this.props.pHeight;
+      //   offset.y = ( img_height - box_height) / img_height;
+      //   // offset.y = 1 - this.props.pWidth / pooltex.image.width;
+      // } else {
+      //   // offset.x = 1 - this.props.pWidth / pooltex.image.width;
+      // }
 
       uniforms = {
         u_time: { type: "f", value: 1.0 },
         u_resolution: { type: "v2", value: new THREE.Vector2() },
+        u_img: { type: "v2", value: new THREE.Vector2(pooltex.image.width, pooltex.image.height)},
         u_noise: { type: "t", value: texture },
         u_buffer: { type: "t", value: rtTexture.texture },
         u_texture: { type: "t", value: pooltex }, 
@@ -106,7 +111,7 @@ class Ripple extends Component {
         u_mouse: { type: "v3", value: new THREE.Vector3() },
         u_frame: { type: "i", value: -1. },
         u_renderpass: { type: 'b', value: false },
-        u_scale: {type: "v2", value: scale},
+        u_scale: {type: "f", value: scale},
         u_offset: {type: "v2", value: offset}
       };
 
@@ -125,12 +130,35 @@ class Ripple extends Component {
       let onWindowResize = () => {
         const width = this.props.pBox.clientWidth;
         const height = this.props.pBox.clientHeight;
+        
         uniforms.u_resolution.value.x = width;
         uniforms.u_resolution.value.y = height;
         rtTexture = new THREE.WebGLRenderTarget(width * textureFraction, height * textureFraction);
         rtTexture2 = new THREE.WebGLRenderTarget(width * textureFraction, height * textureFraction);
         
         uniforms.u_frame.value = -1;
+
+        /** Замуты с позицией и размером изображения */
+        const width_ratio = this.props.pWidth / pooltex.image.width;
+        const height_ratio = this.props.pHeight / pooltex.image.height;
+
+        scale = Math.max(width_ratio, height_ratio);
+        uniforms.u_scale.value = scale;
+
+        let img_height = pooltex.image.height * scale;
+        let img_width = pooltex.image.width * scale;
+        let box_height = this.props.pHeight;
+        let box_width = this.props.pWidth;
+        uniforms.u_offset.value.y = ( img_height - box_height) / img_height;
+        uniforms.u_offset.value.x = 0;
+
+        /** Смещение позиции направо на телефонах */
+        if (window.innerWidth < 760) {
+          uniforms.u_offset.value.x = (img_width - box_width) / img_width;
+        }
+
+        // console.log(scale);
+        // console.log("offs", uniforms.u_offset.value);
       };
 
       onWindowResize();
