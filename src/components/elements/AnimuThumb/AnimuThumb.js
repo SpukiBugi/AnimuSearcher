@@ -7,7 +7,7 @@ const AnimuThumb = (props) => {
         
             <Link to={{ pathname: `/${props.animuId}`, animuName: `${props.animuName}` }}>
                 <div className="animuThumb">
-                    <img src = {props.image} alt='image'/>
+                    <img src = {props.image} alt='htrhr'/>
                     <p>{props.animuName}</p>
                 </div>
             </Link>

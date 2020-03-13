@@ -3,8 +3,14 @@
   min-height: 600px;
   padding: 40px 20px;
   box-sizing: border-box;
-  background-size: cover !important;
-  background-position: center !important;
+  background-size: cover;
+  background-position: center;
+  flex-grow: 1;
+}
+
+.animuInfo__title {
+  margin: 0;
+  padding: 0 0 5px 10px;
 }
 
 .animuInfo__content {

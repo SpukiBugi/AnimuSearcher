@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './main.css';
-import Header from '../elements/Header/Header';
 import SearchBar from '../elements/SearchBar/SearchBar';
 import TitleGrid from '../elements/TitleGrid/TitleGrid';
 import AnimuThumb from '../elements/AnimuThumb/AnimuThumb';
@@ -63,7 +62,7 @@ class main extends Component {
     var variables = {
       search: this.state.searchTerm,
       page: page || 1,
-      perPage: 12,
+      perPage: window.innerWidth > 1500 ? 18  : 12,
       status: this.state.status,
       sort: this.state.sort,
     };
@@ -117,8 +116,7 @@ class main extends Component {
 
   render() {    
     return (
-      <div className="main">
-        <Header />
+      <div className="content-wrap">
         <SearchBar callback = {this.searchItems} />
         <h3>{this.state.searchTerm ? 'Search Result': 'Current Season'}</h3>
         <TitleGrid>

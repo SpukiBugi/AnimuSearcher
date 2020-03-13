@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Header from '../Header/Header';
 import AnimuInfo from '../AnimuInfo/AnimuInfo';
 
 
@@ -83,10 +82,9 @@ class Animu extends Component {
 
     render() {
         return (
-                <React.Fragment>
-                    <div><Header /></div>
-                    <div><AnimuInfo animu={this.state.animu}/></div>
-                </React.Fragment>
+            <div className="content-wrap">
+                <AnimuInfo animu={this.state.animu}/>
+            </div>
         )
     }
 }

@@ -1,17 +1,20 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import ThreeWrap from './webgl/ThreeWrap/ThreeWrap.js';
 import './Header.css';
 
-const Header = () => {
+class Header extends Component {
+  render() {
     return (
-            <Link to='/'  style={{ textDecoration: 'none' }}>
-                <header className="mainHeader">
-                    <div className ="mainHeader__title"><h1>AnimuSearcher</h1></div>
-                    <img className='mainHeader__image' src='/images/arc.png' alt='arc' />
-                </header>
-            </Link>
+      <Link to='/' className="headLink" >
+        <header className="mainHeader">
+          <ThreeWrap />
+          <div className="title">AnimuSearcher</div>
+        </header>
+      </Link>
     )
-}    
+  }
+}
 
 
 export default Header;
