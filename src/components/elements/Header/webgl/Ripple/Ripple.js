@@ -39,9 +39,8 @@ class Ripple extends Component {
     const loader = new THREE.TextureLoader();
 
     let texture, environment, pooltex;
-    loader.setCrossOrigin("anonymous");
     loader.load(
-      'https://s3-us-west-2.amazonaws.com/s.cdpn.io/982762/noise.png',
+      '/images/noise.png',
       (tex) => {
         texture = tex;
         texture.wrapS = THREE.RepeatWrapping;
@@ -49,7 +48,7 @@ class Ripple extends Component {
         texture.minFilter = THREE.LinearFilter;
         
         loader.load( 
-          'https://s3-us-west-2.amazonaws.com/s.cdpn.io/982762/env_lat-lon.png',
+          '/images/env_lat-lon.png',
           function environment_load(tex) {
             environment = tex;
             environment.wrapS = THREE.RepeatWrapping;
@@ -82,23 +81,6 @@ class Ripple extends Component {
       
       let scale;
       let offset = new THREE.Vector2();
-      // scale.x = pooltex.image.width / this.props.pWidth;
-      // scale.y = pooltex.image.height / this.props.pHeight;
-
-
-      // scale.y = 1;
-      // scale= pooltex.image.width / this.props.pWidth;
-      // if (scale.x < 1) {
-      //   scale = 1 / scale;
-      //   // scale.y = scale.x;
-      //   // scale.x = 1 / scale.x;
-      //   let img_height = pooltex.image.height * scale.y;
-      //   let box_height = this.props.pHeight;
-      //   offset.y = ( img_height - box_height) / img_height;
-      //   // offset.y = 1 - this.props.pWidth / pooltex.image.width;
-      // } else {
-      //   // offset.x = 1 - this.props.pWidth / pooltex.image.width;
-      // }
 
       uniforms = {
         u_time: { type: "f", value: 1.0 },
@@ -156,9 +138,6 @@ class Ripple extends Component {
         if (window.innerWidth < 760) {
           uniforms.u_offset.value.x = (img_width - box_width) / img_width;
         }
-
-        // console.log(scale);
-        // console.log("offs", uniforms.u_offset.value);
       };
 
       onWindowResize();
@@ -185,9 +164,6 @@ class Ripple extends Component {
   
       this.props.pBox.addEventListener('pointermove', ripple);
       this.props.pBox.addEventListener('click', ripple);
-      // this.$parent.box.addEventListener('mouseover', ()=> {
-      //   this.uniforms.u_mouse.value.z = 1;
-      // });
       this.props.pBox.addEventListener('mouseout', ()=> {
         uniforms.u_mouse.value.z = 0;
       });
@@ -198,23 +174,17 @@ class Ripple extends Component {
       render(delta);
     };
 
-    // let beta = Math.random() * -1000;
     let render = (delta) => {
       uniforms.u_frame.value++;
       
       uniforms.u_mouse.value.x += ( mouse.x - uniforms.u_mouse.value.x ) * divisor;
       uniforms.u_mouse.value.y += ( mouse.y - uniforms.u_mouse.value.y ) * divisor;
       
-      // this.uniforms.u_time.value = beta + delta * 0.0005;
       this.props.updateRenderer();
       renderTexture(delta);
     };
 
-    let renderTexture = (delta) => {
-
-      // let r1 = this.rtTexture;
-      // let r2 = this.rtTexture2;
-      
+    let renderTexture = (delta) => {      
       let odims = uniforms.u_resolution.value.clone();
       uniforms.u_resolution.value.x = this.props.pWidth * textureFraction;
       uniforms.u_resolution.value.y = this.props.pHeight * textureFraction;
@@ -225,9 +195,6 @@ class Ripple extends Component {
       
       window.rtTexture = rtTexture;
       this.props.setRenderTarget(rtTexture);
-      // this.props.updateTexture(rtTexture)
-
-      // this.$parent.renderer.render( this.$parent.scene, this.$parent.camera, this.rtTexture, true );
       
       let buffer = rtTexture;
       rtTexture = rtTexture2;

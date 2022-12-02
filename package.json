@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/react-fontawesome": "^0.1.4",
     "history": "^4.9.0",
+    "push-dir": "^0.4.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-fontawesome": "^1.6.1",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8"
   },
@@ -15,7 +14,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "push-dir --dir=build --branch=gh-pages --cleanup"
   },
   "browserslist": [
     ">0.2%",
@@ -23,7 +23,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.8.1"
-  }
+  "devDependencies": {},
+  "homepage": "https://spukibugi.github.io/AnimuSearcher/"
 }
