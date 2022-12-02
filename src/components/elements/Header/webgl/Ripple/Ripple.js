@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import fragmentShader from './shaders/fragmentShader.js';
 import vertexShader from './shaders/vertexShader.js';
 
-const image = "/images/head_back_sc.jpg";
+const image = `${process.env.PUBLIC_URL}/images/head_back_sc.jpg`;
 
 let geometry = "";
 let material = "";
@@ -40,7 +40,7 @@ class Ripple extends Component {
 
     let texture, environment, pooltex;
     loader.load(
-      '/images/noise.png',
+      `${process.env.PUBLIC_URL}/images/noise.png`,
       (tex) => {
         texture = tex;
         texture.wrapS = THREE.RepeatWrapping;
@@ -48,7 +48,7 @@ class Ripple extends Component {
         texture.minFilter = THREE.LinearFilter;
         
         loader.load( 
-          '/images/env_lat-lon.png',
+          `${process.env.PUBLIC_URL}/images/env_lat-lon.png`,
           function environment_load(tex) {
             environment = tex;
             environment.wrapS = THREE.RepeatWrapping;
