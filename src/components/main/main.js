@@ -116,7 +116,7 @@ class main extends Component {
 
   render() {    
     return (
-      <div className="content-wrap">
+      <div className="content-wrap _main">
         <SearchBar callback = {this.searchItems} />
         <h3>{this.state.searchTerm ? 'Search Result': 'Current Season'}</h3>
         <TitleGrid>
