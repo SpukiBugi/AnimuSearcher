@@ -30,8 +30,3 @@ body {
     border-width: 1px;
     font-size: 20px;
 }
-
-@font-face {
-    font-family: alsscr;
-    src: url("/fonts/alsscrp.ttf") format('truetype');
-}

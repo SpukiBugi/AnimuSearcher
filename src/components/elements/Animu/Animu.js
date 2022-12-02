@@ -82,7 +82,7 @@ class Animu extends Component {
 
     render() {
         return (
-            <div className="content-wrap _animu">
+            <div className="content-wrap">
                 <AnimuInfo animu={this.state.animu}/>
             </div>
         )

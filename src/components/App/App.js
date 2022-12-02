@@ -6,7 +6,6 @@ import Animu from '../elements/Animu/Animu';
 import NotFound from '../elements/NotFound/NotFound'
 
 const App = () => {
-  console.log('base', process.env.PUBLIC_URL);
   return (
     <BrowserRouter basename={`${process.env.PUBLIC_URL}`}>
       <div className="main">

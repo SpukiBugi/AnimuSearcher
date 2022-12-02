@@ -1,3 +1,3 @@
 ﻿React searcher project
  
-Demo: https://animusearcher.herokuapp.com
+Demo: https://spukibugi.github.io/AnimuSearcher/
