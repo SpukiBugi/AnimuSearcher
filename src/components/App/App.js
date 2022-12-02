@@ -7,7 +7,7 @@ import NotFound from '../elements/NotFound/NotFound'
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
       <div className="main">
         <Header />
         <React.Fragment>
